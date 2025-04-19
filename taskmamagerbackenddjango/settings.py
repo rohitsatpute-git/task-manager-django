@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    'https://task-manager-frontend-tawny-one.vercel.app'
 ]
 
 ROOT_URLCONF = 'taskmamagerbackenddjango.urls'
