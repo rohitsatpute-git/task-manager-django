@@ -22,7 +22,7 @@ def export_tasks_to_excel(request):
     ws = wb.active
     ws.title = "Tasks"
 
-    # Headers
+   
     ws.append(['Title', 'Description', 'Effort (days)', 'Due Date', 'Created At'])
 
     # Data
