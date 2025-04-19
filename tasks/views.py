@@ -23,6 +23,18 @@ class TaskViewSet(viewsets.ModelViewSet):
         user_id = self.request.data.get('userId')
         serializer.save(user_id=user_id)
 
+    def get_queryset(self):
+        user_id = self.request.query_params.get('userId')
+        if user_id:
+            return Task.objects.filter(user_id=user_id).order_by('-created_at')
+        return Task.objects.none()
+
+    def perform_destroy(self, instance):
+        user_id = self.request.query_params.get('userId')
+        if instance.user_id != user_id:
+            raise PermissionDenied("You can only delete your own tasks.")
+        instance.delete()
+
 
 @api_view(['GET'])
 def export_tasks_to_excel(request):
