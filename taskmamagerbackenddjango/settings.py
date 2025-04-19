@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'taskmamagerbackenddjango.wsgi.application'
+WSGI_APPLICATION = 'taskmamagerbackenddjango.wsgi.app'
 
 
 # Database
