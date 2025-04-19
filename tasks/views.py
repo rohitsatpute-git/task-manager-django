@@ -11,8 +11,17 @@ from rest_framework.decorators import api_view
 
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all().order_by('-created_at')
     serializer_class = TaskSerializer
+
+    def get_queryset(self):
+        user_id = self.request.query_params.get('userId')
+        if user_id:
+            return Task.objects.filter(user_id=user_id).order_by('-created_at')
+        return Task.objects.none()
+
+    def perform_create(self, serializer):
+        user_id = self.request.data.get('userId')
+        serializer.save(user_id=user_id)
 
 
 @api_view(['GET'])
