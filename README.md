@@ -22,6 +22,22 @@ This is the backend API for a Task Manager app built with Django and Django REST
 
 ### 1. Clone the repository
 
-```bash
+```bash```
 git clone https://github.com/yourusername/task-manager-django.git
 cd task-manager-django
+
+
+# 2. Create virtual environment & install dependencies
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# 3. Apply migrations and run server
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+# 4. Create superuser for admin
+python manage.py createsuperuser
+
+
