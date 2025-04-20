@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u6l$4l+w5vyhg7&ivatx278u1+$$8kr*!n&8yx-eo#69f@frj!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1' , '.vercel.app', 'https://task-manager-frontend-tawny-one.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1' , '.vercel.app', 'https://task-manager-frontend-tawny-one.vercel.app', '*']
 
 
 # Application definition
@@ -54,7 +54,8 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    'https://task-manager-frontend-tawny-one.vercel.app'
+    'https://task-manager-frontend-tawny-one.vercel.app',
+    '*'
 ]
 
 ROOT_URLCONF = 'taskmamagerbackenddjango.urls'
